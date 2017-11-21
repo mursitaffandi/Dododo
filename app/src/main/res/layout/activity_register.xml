@@ -30,4 +30,5 @@
         android:layout_height="wrap_content"
         android:text="daftar"
         android:layout_gravity="center"/>
+
 </LinearLayout>
