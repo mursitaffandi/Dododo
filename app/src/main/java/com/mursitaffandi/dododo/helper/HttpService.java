@@ -16,10 +16,6 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import info.androidhive.smsverification.activity.MainActivity;
-import info.androidhive.smsverification.app.Config;
-import info.androidhive.smsverification.app.MyApplication;
-import info.androidhive.smsverification.helper.PrefManager;
 
 public class HttpService extends IntentService {
 
