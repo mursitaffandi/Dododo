@@ -10,6 +10,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     EditText edt_email, edt_password;
     Button btn_login;
+    public static final String LOGIN_PREF = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
