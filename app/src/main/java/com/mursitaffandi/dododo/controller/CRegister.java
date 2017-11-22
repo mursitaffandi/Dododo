@@ -3,7 +3,7 @@ package com.mursitaffandi.dododo.controller;
 import com.mursitaffandi.dododo.ApplicationBase;
 import com.mursitaffandi.dododo.model.MRegister;
 import com.mursitaffandi.dododo.network.SRegister;
-import com.mursitaffandi.dododo.util.Progress;
+import com.mursitaffandi.dododo.event.EVRegister;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -18,7 +18,7 @@ import retrofit2.Response;
  */
 
 public class CRegister {
-    private Progress event = new Progress();
+    private EVRegister event = new EVRegister();
     private EventBus eventBus = ApplicationBase.getInstance().getEventBus();
     Map<String, String> query;
 
@@ -34,7 +34,7 @@ public class CRegister {
         this.query.put("password", password);
     }
 
-    public void getBaking() {
+    public void sendRegister() {
         SRegister apiService =
                 SRegister.client.create(SRegister.class);
         Call<MRegister> listBakingCall = apiService.getJsonMRegister(query);

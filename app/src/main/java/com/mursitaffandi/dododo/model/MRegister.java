@@ -1,5 +1,8 @@
 package com.mursitaffandi.dododo.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -7,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by mursitaffandi on 22/11/17.
  */
 
-public class MRegister {
+public class MRegister implements Parcelable {
     @SerializedName("sukses")
     @Expose
     private Boolean sukses;
@@ -48,4 +51,32 @@ public class MRegister {
     public void setPesan(String pesan) {
         this.pesan = pesan;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(this.sukses);
+        dest.writeString(this.pesan);
+    }
+
+    protected MRegister(Parcel in) {
+        this.sukses = (Boolean) in.readValue(Boolean.class.getClassLoader());
+        this.pesan = in.readString();
+    }
+
+    public static final Parcelable.Creator<MRegister> CREATOR = new Parcelable.Creator<MRegister>() {
+        @Override
+        public MRegister createFromParcel(Parcel source) {
+            return new MRegister(source);
+        }
+
+        @Override
+        public MRegister[] newArray(int size) {
+            return new MRegister[size];
+        }
+    };
 }

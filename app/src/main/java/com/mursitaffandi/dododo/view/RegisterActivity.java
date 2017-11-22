@@ -2,6 +2,7 @@ package com.mursitaffandi.dododo.view;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,8 +14,12 @@ import android.widget.EditText;
 import com.mursitaffandi.dododo.ApplicationBase;
 import com.mursitaffandi.dododo.R;
 import com.mursitaffandi.dododo.controller.CRegister;
+import com.mursitaffandi.dododo.event.EVRegister;
+import com.mursitaffandi.dododo.model.MRegister;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -83,6 +88,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 if (!isEmptyFields){
                     // TODO send to DB
                     controllerRegister = new CRegister(nama,email,no_hp,tanggal,password);
+                    controllerRegister.sendRegister();
                     // jika berhasil, konfirmasi OTP sms
                     startActivity(new Intent(RegisterActivity.this, OTPActivity.class));
                 }
@@ -111,4 +117,35 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         datePickerDialog.show();
     }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        eventBus.register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        eventBus.unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getRecipes(EVRegister event) {
+//        progress_layout.setVisibility(View.GONE);
+        if (event.isSuccess()) {
+            final MRegister mRegister = event.getmRegister();
+
+            Intent i = new Intent(RegisterActivity.this, OTPActivity.class);
+            i.putExtra("data_register",mRegister);
+            startActivity(i);
+            finish();
+        }
+        /*else {
+            progress_layout.setVisibility(View.GONE);
+            error_layout.setVisibility(View.VISIBLE);
+        }*/
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.mursitaffandi.dododo.util;
+package com.mursitaffandi.dododo.event;
 
 import com.mursitaffandi.dododo.model.MRegister;
 
@@ -6,7 +6,7 @@ import com.mursitaffandi.dododo.model.MRegister;
  * Created by mursitaffandi on 22/11/17.
  */
 
-public class Progress {
+public class EVRegister {
     private String message;
     private boolean success;
 
