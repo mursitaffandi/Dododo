@@ -6,7 +6,7 @@
         android:id="@+id/list_dokter"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:text="Poli"
+        android:text="Dokter"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
