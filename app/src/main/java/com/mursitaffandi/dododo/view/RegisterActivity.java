@@ -2,7 +2,6 @@ package com.mursitaffandi.dododo.view;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,11 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mursitaffandi.dododo.ApplicationBase;
 import com.mursitaffandi.dododo.R;
-import com.mursitaffandi.dododo.controller.CRegister;
+import com.mursitaffandi.dododo.presenter.CRegister;
 import com.mursitaffandi.dododo.event.EVRegister;
 import com.mursitaffandi.dododo.model.MRegister;
 
@@ -30,8 +29,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
 
-    private EditText edt_no_hp, edt_nama, edt_email,edt_password,edt_reentry_password;
-    private TextView edt_tanggal;
+    private EditText edt_tanggal, edt_no_hp, edt_nama, edt_email,edt_password;
     private Button btn_daftar;
 
     private CRegister controllerRegister;
@@ -48,11 +46,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void initViewOnClick() {
         edt_no_hp = (EditText) findViewById(R.id.edt_no_hp);
-        edt_tanggal = (TextView) findViewById(R.id.edt_tanggal);
+        edt_tanggal = (EditText) findViewById(R.id.edt_tanggal);
         edt_email = (EditText) findViewById(R.id.edt_email);
         edt_nama = (EditText) findViewById(R.id.edt_nama);
         edt_password = (EditText) findViewById(R.id.edt_password);
-        edt_reentry_password= (EditText) findViewById(R.id.edt_reentry_password);
         btn_daftar = (Button) findViewById(R.id.btn_daftar);
 
         edt_tanggal.setOnClickListener(this);
@@ -70,7 +67,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 String tanggal = edt_tanggal.getText().toString();
                 String no_hp = edt_no_hp.getText().toString();
                 String password = edt_password.getText().toString();
-                String reEntryPassword = edt_reentry_password.getText().toString();
 
                 boolean isEmptyFields= false;
                 if (TextUtils.isEmpty(nama)){
@@ -93,10 +89,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 if (TextUtils.isEmpty(password)){
                     isEmptyFields = true;
                     edt_password.setError("Wajib diisi");
-                }
-                if (!reEntryPassword.equals(password)){
-                    isEmptyFields = true;
-                    edt_reentry_password.setError("password tidak sesuai");
                 }
 
                 if (!isEmptyFields){
@@ -147,19 +139,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void getRecipes(EVRegister event) {
-//        progress_layout.setVisibility(View.GONE);
+        final MRegister mRegister = event.getmRegister();
         if (event.isSuccess()) {
-            final MRegister mRegister = event.getmRegister();
-
             Intent i = new Intent(RegisterActivity.this, OTPActivity.class);
             i.putExtra("data_register",mRegister);
             startActivity(i);
             finish();
+        } else {
+            Toast.makeText(this, event.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        /*else {
-            progress_layout.setVisibility(View.GONE);
-            error_layout.setVisibility(View.VISIBLE);
-        }*/
     }
 
 }

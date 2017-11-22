@@ -1,30 +1,31 @@
 package com.mursitaffandi.dododo.event;
 
-import com.mursitaffandi.dododo.model.MRegister;
+
+import com.mursitaffandi.dododo.model.MLogin;
 
 /**
- * Created by mursitaffandi on 22/11/17.
+ * Created by mursitaffandi on 23/11/17.
  */
 
-public class EVRegister {
+public class EVLogin {
     private String message;
-    private MRegister mRegister;
+    private MLogin mLogin;
     private boolean success;
 
-
-    public MRegister getmRegister() {
-        return mRegister;
-    }
-
-    public void setmRegister(MRegister mRegister) {
-        this.mRegister = mRegister;
-    }
     public String getMessage() {
         return message;
     }
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public MLogin getmLogin() {
+        return mLogin;
+    }
+
+    public void setmLogin(MLogin mLogin) {
+        this.mLogin = mLogin;
     }
 
     public boolean isSuccess() {
@@ -34,5 +35,4 @@ public class EVRegister {
     public void setSuccess(boolean success) {
         this.success = success;
     }
-
 }

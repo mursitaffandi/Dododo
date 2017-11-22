@@ -3,8 +3,11 @@ package com.mursitaffandi.dododo;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.mursitaffandi.dododo.util.Session;
+
 import org.greenrobot.eventbus.EventBus;
 
 
@@ -12,6 +15,12 @@ public class ApplicationBase extends Application {
     private static ApplicationBase instance;
     private Gson gson;
     private EventBus eventBus;
+
+    public Session getSession() {
+        return session;
+    }
+
+    private Session session;
 
     public ApplicationBase() {
         instance = this;
@@ -29,6 +38,11 @@ public class ApplicationBase extends Application {
         createGson();
         createEventBus();
         createPreference();
+        createSession();
+    }
+
+    private void createSession() {
+        session = new Session(instance);
     }
 
     private void createPreference() {

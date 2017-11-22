@@ -1,4 +1,4 @@
-package com.mursitaffandi.dododo.controller;
+package com.mursitaffandi.dododo.presenter;
 
 import com.mursitaffandi.dododo.ApplicationBase;
 import com.mursitaffandi.dododo.model.MRegister;
@@ -42,9 +42,15 @@ public class CRegister {
         listBakingCall.enqueue(new Callback<MRegister>() {
             @Override
             public void onResponse(Call<MRegister> call, Response<MRegister> response) {
-                event.setSuccess(true);
-                event.setMessage(response.message());
                 MRegister mregister = response.body();
+                if (mregister.getSukses()){
+                    event.setSuccess(true);
+                    event.setMessage(mregister.getPesan());
+                } else {
+                    event.setSuccess(false);
+                    event.setMessage(mregister.getPesan());
+                }
+
                 event.setmRegister(mregister);
                 eventBus.post(event);
             }
