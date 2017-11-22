@@ -13,7 +13,7 @@ import com.mursitaffandi.dododo.util.Session;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button btn_informasi,btn_penjadwalan,btn_cek_antrian;
+    Button btn_informasi,btn_penjadwalan,btn_cek_antrian,btn_logout;
 Session session = ApplicationBase.getInstance().getSession();
 
     @Override
@@ -33,10 +33,12 @@ Session session = ApplicationBase.getInstance().getSession();
         btn_informasi = (Button) findViewById(R.id.btn_informasi);
         btn_penjadwalan = (Button) findViewById(R.id.btn_penjadwalan);
         btn_cek_antrian = (Button) findViewById(R.id.btn_cek_antrian);
+        btn_logout = (Button) findViewById(R.id.btn_logout);
 
         btn_penjadwalan.setOnClickListener(this);
         btn_informasi.setOnClickListener(this);
         btn_cek_antrian.setOnClickListener(this);
+        btn_logout.setOnClickListener(this);
     }
 
     @Override
@@ -44,9 +46,13 @@ Session session = ApplicationBase.getInstance().getSession();
         switch (view.getId())
         {
             case R.id.btn_informasi:
+                startActivity(new Intent(MainActivity.this,InformasiActivity.class));
                 break;
             case R.id.btn_penjadwalan:
                 startActivity(new Intent(MainActivity.this,JadwalCheckUpActivity.class));
+                break;
+            case  R.id.btn_logout:
+                session.logoutUser();
                 break;
         }
 

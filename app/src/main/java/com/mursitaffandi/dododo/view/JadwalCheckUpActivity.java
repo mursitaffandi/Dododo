@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.mursitaffandi.dododo.R;
 
@@ -22,7 +23,9 @@ public class JadwalCheckUpActivity extends AppCompatActivity implements Spinner.
     private SimpleDateFormat dateFormatter;
     private ArrayList<String> dokter,poli,jam_praktek;
     EditText edt_tgl_checkup;
+    TextView nama;
     Button btn_daftar, btn_batal;
+    Spinner spn_poli, spn_dokter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,9 @@ public class JadwalCheckUpActivity extends AppCompatActivity implements Spinner.
         edt_tgl_checkup = (EditText) findViewById(R.id.edt_tgl_checkup);
         btn_batal = (Button) findViewById(R.id.btn_batal);
         btn_daftar = (Button) findViewById(R.id.btn_daftar);
+        nama = (TextView) findViewById(R.id.nama);
+        spn_dokter = (Spinner) findViewById(R.id.spn_dokter);
+        spn_poli = (Spinner) findViewById(R.id.spn_poli);
 
         edt_tgl_checkup.setOnClickListener(this);
         btn_daftar.setOnClickListener(this);
@@ -50,6 +56,8 @@ public class JadwalCheckUpActivity extends AppCompatActivity implements Spinner.
             case R.id.btn_batal:
                 break;
             case R.id.btn_daftar:
+                String snama = nama.toString();
+                String tgl_checkup = edt_tgl_checkup.getText().toString();
                 break;
             case R.id.edt_tgl_checkup:
                 showDateDialog();

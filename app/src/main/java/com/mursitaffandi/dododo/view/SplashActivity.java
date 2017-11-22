@@ -9,8 +9,6 @@ import android.os.Bundle;
 import com.mursitaffandi.dododo.R;
 
 public class SplashActivity extends AppCompatActivity {
-
-    SharedPreferences loginPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

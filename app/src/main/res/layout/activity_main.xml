@@ -59,7 +59,9 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:background="@null"
+            android:id="@+id/btn_logout"
+            android:text="Log OUt"
+            android:drawableLeft="@android:drawable/ic_lock_lock"
             android:padding="10dp"
             android:layout_margin="10dp"/>
     </LinearLayout>

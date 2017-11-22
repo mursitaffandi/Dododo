@@ -14,14 +14,19 @@
         android:name=".ApplicationBase"
         android:theme="@style/AppTheme">
         <activity android:name=".view.RegisterActivity">
+
+        </activity>
+        <activity android:name=".view.MainActivity" />
+        <activity android:name=".view.LoginActivity" />
+        <activity android:name=".view.SplashActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MainActivity" />
-        <activity android:name=".view.LoginActivity" />
-        <activity android:name=".view.SplashActivity" />
         <activity android:name=".view.OTPActivity"/>
 
         <receiver android:name="com.mursitaffandi.dododo.receiver.SmsReceiver">
