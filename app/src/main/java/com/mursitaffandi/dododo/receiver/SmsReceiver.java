@@ -1,4 +1,4 @@
-package com.mursitaffandi.dododo.helper;
+package com.mursitaffandi.dododo.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

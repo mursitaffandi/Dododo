@@ -1,4 +1,4 @@
-package com.mursitaffandi.dododo;
+package com.mursitaffandi.dododo.view;
 
 import android.Manifest;
 import android.content.BroadcastReceiver;
@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.mursitaffandi.dododo.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,9 +39,7 @@ public class OTPActivity extends AppCompatActivity implements View.OnClickListen
 
         // TODO CountDown
 
-        if (checkAndRequestPermissions()) {
-            // carry on the normal flow, as the case of  permissions  granted.
-        }
+        if (checkAndRequestPermissions()) {}
         countDown();
 
     }
