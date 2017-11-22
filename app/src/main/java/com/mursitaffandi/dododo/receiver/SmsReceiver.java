@@ -16,12 +16,7 @@ import com.mursitaffandi.dododo.model.SMSContent;
 public class SmsReceiver extends BroadcastReceiver {
     private static final String TAG = SmsReceiver.class.getSimpleName();
 
-    private static SmsListener mListener;
     private SMSContent contentSMS;
-
-    public static void bindListener(SmsListener listener) {
-        mListener = listener;
-    }
 
     @Override
     public void onReceive(Context context, Intent intent) {

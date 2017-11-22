@@ -39,9 +39,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 startActivity(new Intent(MainActivity.this,JadwalCheckUpActivity.class));
                 break;
-            case R.id.btn_cek_antrian:
-                startActivity(new Intent(MainActivity.this,AntrianKuActivity.class));
-                break;
         }
 
 

@@ -7,6 +7,7 @@ import com.mursitaffandi.dododo.event.EVRegister;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -20,7 +21,7 @@ import retrofit2.Response;
 public class CRegister {
     private EVRegister event = new EVRegister();
     private EventBus eventBus = ApplicationBase.getInstance().getEventBus();
-    Map<String, String> query;
+    private Map<String, String> query = new HashMap<>();
 
     public CRegister(String nama,
                      String email,
