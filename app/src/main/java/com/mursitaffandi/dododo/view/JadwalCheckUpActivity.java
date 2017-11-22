@@ -55,6 +55,7 @@ public class JadwalCheckUpActivity extends AppCompatActivity implements Spinner.
             case R.id.btn_daftar:
                 break;
             case R.id.edt_tgl_checkup:
+                showDateDialog();
                 break;
         }
     }

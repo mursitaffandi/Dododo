@@ -10,7 +10,7 @@ import com.mursitaffandi.dododo.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button btn_informasi,btn_penjadwalan;
+    Button btn_informasi,btn_penjadwalan,btn_cek_antrian;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +22,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         btn_informasi = (Button) findViewById(R.id.btn_informasi);
         btn_penjadwalan = (Button) findViewById(R.id.btn_penjadwalan);
+        btn_cek_antrian = (Button) findViewById(R.id.btn_cek_antrian);
 
         btn_penjadwalan.setOnClickListener(this);
         btn_informasi.setOnClickListener(this);
+        btn_cek_antrian.setOnClickListener(this);
     }
 
     @Override
@@ -36,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_penjadwalan:
 
                 startActivity(new Intent(MainActivity.this,JadwalCheckUpActivity.class));
+                break;
+            case R.id.btn_cek_antrian:
+                startActivity(new Intent(MainActivity.this,AntrianKuActivity.class));
                 break;
         }
 
