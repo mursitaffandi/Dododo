@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_informasi:
                 break;
             case R.id.btn_penjadwalan:
-
                 startActivity(new Intent(MainActivity.this,JadwalCheckUpActivity.class));
                 break;
         }

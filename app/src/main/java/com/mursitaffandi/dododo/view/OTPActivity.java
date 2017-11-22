@@ -45,9 +45,9 @@ public class OTPActivity extends AppCompatActivity implements View.OnClickListen
     }
 public void countDown(){
     btn_resend_code.setVisibility(View.INVISIBLE);
-    CountDownTimer Count = new CountDownTimer(10000, 1000) {
+    CountDownTimer Count = new CountDownTimer(60000, 1000) {
         public void onTick(long millisUntilFinished) {
-            tv_timer.setText("Seconds remaining: " + millisUntilFinished / 1000);
+            tv_timer.setText(+ millisUntilFinished / 1000 +"detik lagi");
         }
 
         public void onFinish() {

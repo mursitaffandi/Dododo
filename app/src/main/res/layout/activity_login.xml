@@ -54,13 +54,13 @@
             android:text="Login"
             android:id="@+id/btn_login" />
         <Button
-            android:id="@+id/btn_link_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
             android:text="Daftar di sini"
             android:textAllCaps="false"
             android:textColor="#fff"
+            android:id="@+id/btn_link_register"
             android:textSize="15dp" />
     </LinearLayout>
 

@@ -30,6 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         edt_password = (EditText) findViewById(R.id.edt_password);
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_link_register = (Button) findViewById(R.id.btn_link_register);
+
         btn_login.setOnClickListener(this);
         btn_link_register.setOnClickListener(this);
 
@@ -57,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (!isEmptyFields){
                     // TODO Cek email & password
                     if (email.equals("sandec") && password.equals("quepi")){
-                        SharedPreferences sp = getSharedPreferences(LOGIN_PREF, MODE_PRIVATE);
+/*                        SharedPreferences sp = getSharedPreferences(LOGIN_PREF, MODE_PRIVATE);
 
                         SharedPreferences.Editor spEdit = sp.edit();
 
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         spEdit.putString("token","sdkj23h4r9dfhakse4jhsadf9813e23rhkj");
 
                         spEdit.apply();
-
+*/
                         Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                         Intent in =new Intent(this,MainActivity.class);
                         // khusus login, menghapus activity sebelumnya

@@ -29,9 +29,6 @@ public class JadwalCheckUpActivity extends AppCompatActivity implements Spinner.
         setContentView(R.layout.activity_jadwal_check_up);
 
         dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
-        dokter = new ArrayList<String>();
-        poli = new ArrayList<String>();
-        jam_praktek = new ArrayList<String>();
 
         initView();
     }
