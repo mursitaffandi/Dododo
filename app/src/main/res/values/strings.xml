@@ -26,6 +26,9 @@ Mea ad legere tincidunt, augue doctus alienum et has. Est cu consul feugiat, pos
     </string>
 
     <string-array name="list_poli">
-        <item
+        <item name="Poli gigi"></item>
+        <item name="Poli penyakit dalam"></item>
+        <item name="Poli gigi"></item>
+        <item name="Poli gigi"></item>
     </string-array>
 </resources>
