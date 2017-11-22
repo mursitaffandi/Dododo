@@ -18,8 +18,6 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                // jika tidak ada token masuk ke loginActivity, jika ada token masuk ke Main
-
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
 

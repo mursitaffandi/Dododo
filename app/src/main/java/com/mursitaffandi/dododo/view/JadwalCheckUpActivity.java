@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -17,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class JadwalCheckUpActivity extends AppCompatActivity implements Spinner.OnItemSelectedListener,View.OnClickListener{
+public class JadwalCheckUpActivity extends AppCompatActivity implements View.OnClickListener{
 
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
@@ -34,6 +35,15 @@ public class JadwalCheckUpActivity extends AppCompatActivity implements Spinner.
         dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 
         initView();
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.list_poli, R.layout.list_spinner_poli);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spn_poli.setAdapter(adapter);
+
+        ArrayAdapter<CharSequence> adapterDokter = ArrayAdapter.createFromResource(this,
+                R.array.list_poli, R.layout.list_spinner_poli);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spn_dokter.setAdapter(adapterDokter);
     }
 
     private void initView() {
@@ -58,21 +68,13 @@ public class JadwalCheckUpActivity extends AppCompatActivity implements Spinner.
             case R.id.btn_daftar:
                 String snama = nama.toString();
                 String tgl_checkup = edt_tgl_checkup.getText().toString();
+                String poli = spn_poli.getSelectedItem().toString();
+                String dokter = spn_dokter.getSelectedItem().toString();
                 break;
             case R.id.edt_tgl_checkup:
                 showDateDialog();
                 break;
         }
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 
 
