@@ -36,14 +36,10 @@ public class JadwalCheckUpActivity extends AppCompatActivity implements View.OnC
 
         initView();
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.list_poli, R.layout.list_spinner_poli);
+                R.array.list_poli, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spn_poli.setAdapter(adapter);
 
-        ArrayAdapter<CharSequence> adapterDokter = ArrayAdapter.createFromResource(this,
-                R.array.list_poli, R.layout.list_spinner_poli);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spn_dokter.setAdapter(adapterDokter);
     }
 
     private void initView() {

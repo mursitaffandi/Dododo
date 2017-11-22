@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mursitaffandi.dododo.ApplicationBase;
@@ -29,7 +30,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
 
-    private EditText edt_tanggal, edt_no_hp, edt_nama, edt_email,edt_password;
+    private EditText edt_no_hp, edt_nama, edt_email,edt_password,edt_reentry_password;
+    private TextView edt_tanggal;
     private Button btn_daftar;
 
     private CRegister controllerRegister;
@@ -46,14 +48,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void initViewOnClick() {
         edt_no_hp = (EditText) findViewById(R.id.edt_no_hp);
-        edt_tanggal = (EditText) findViewById(R.id.edt_tanggal);
+        edt_tanggal = (TextView) findViewById(R.id.edt_tanggal);
         edt_email = (EditText) findViewById(R.id.edt_email);
         edt_nama = (EditText) findViewById(R.id.edt_nama);
+        edt_reentry_password = (EditText) findViewById(R.id.edt_reentry_password);
         edt_password = (EditText) findViewById(R.id.edt_password);
         btn_daftar = (Button) findViewById(R.id.btn_daftar);
 
         edt_tanggal.setOnClickListener(this);
         btn_daftar.setOnClickListener(this);
+
 
     }
 
@@ -67,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 String tanggal = edt_tanggal.getText().toString();
                 String no_hp = edt_no_hp.getText().toString();
                 String password = edt_password.getText().toString();
+                String reEntryPassword = edt_reentry_password.getText().toString();
 
                 boolean isEmptyFields= false;
                 if (TextUtils.isEmpty(nama)){
@@ -90,6 +95,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     isEmptyFields = true;
                     edt_password.setError("Wajib diisi");
                 }
+                if (!reEntryPassword.equals(password)){
+                    isEmptyFields = true;
+                    edt_reentry_password.setError("Password tidak sesuai");
+                }
+
 
                 if (!isEmptyFields){
                     // TODO send to DB

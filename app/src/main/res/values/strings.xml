@@ -26,10 +26,10 @@ Mea ad legere tincidunt, augue doctus alienum et has. Est cu consul feugiat, pos
     </string>
 
     <string-array name="list_poli">
-        <item name="Gigi"></item>
-        <item name="Spesialis Bedah"></item>
-        <item name="Spesialis Kesehatan Anak"></item>
-        <item name="Penyakit Dalam"></item>
-        <item name="Penyakit Mata"></item>
+        <item>Gigi</item>
+        <item>Spesialis Bedah</item>
+        <item>Spesialis Kesehatan Anak</item>
+        <item>Penyakit Dalam</item>
+        <item>Penyakit Mata</item>
     </string-array>
 </resources>

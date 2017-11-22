@@ -13,22 +13,29 @@
         android:supportsRtl="true"
         android:name=".ApplicationBase"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.RegisterActivity"> </activity>
-        <activity android:name=".view.MainActivity" />
-        <activity android:name=".view.LoginActivity" />
-        <activity android:name=".view.SplashActivity"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".view.RegisterActivity"
+            android:label="Register">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.InformasiActivity"/>
+        <activity android:name=".view.MainActivity" />
+        <activity android:name=".view.LoginActivity"
+            android:label="Login"></activity>
+        <activity android:name=".view.SplashActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".view.InformasiActivity"
+            android:label="Informasi Poli Kesehatan"></activity>
         <activity android:name=".view.AntrianKuActivity"/>
-        <activity android:name=".view.OTPActivity"/>
-        <activity android:name=".view.JadwalCheckUpActivity"/>
+        <activity android:name=".view.OTPActivity"
+            android:label="Konfirmasi SMS"></activity>
+        <activity android:name=".view.JadwalCheckUpActivity">
+        </activity>
 
         <receiver android:name="com.mursitaffandi.dododo.receiver.SmsReceiver">
             <intent-filter>
