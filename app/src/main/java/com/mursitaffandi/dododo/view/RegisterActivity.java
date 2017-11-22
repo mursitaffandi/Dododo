@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
 
-    private EditText edt_tanggal, edt_no_hp, edt_nama, edt_email;
+    private EditText edt_tanggal, edt_no_hp, edt_nama, edt_email,edt_password;
     private Button btn_daftar;
 
     private CRegister controllerRegister;
@@ -49,6 +49,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         edt_tanggal = (EditText) findViewById(R.id.edt_tanggal);
         edt_email = (EditText) findViewById(R.id.edt_email);
         edt_nama = (EditText) findViewById(R.id.edt_nama);
+        edt_password = (EditText) findViewById(R.id.edt_password);
         btn_daftar = (Button) findViewById(R.id.btn_daftar);
 
         edt_tanggal.setOnClickListener(this);
@@ -65,6 +66,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 String email = edt_email.getText().toString();
                 String tanggal = edt_tanggal.getText().toString();
                 String no_hp = edt_no_hp.getText().toString();
+                String password = edt_password.getText().toString();
 
                 boolean isEmptyFields= false;
                 if (TextUtils.isEmpty(nama)){
@@ -83,6 +85,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 if (TextUtils.isEmpty(no_hp)){
                     isEmptyFields = true;
                     edt_no_hp.setError("Wajib diisi");
+                }
+                if (TextUtils.isEmpty(password)){
+                    isEmptyFields = true;
+                    edt_password.setError("Wajib diisi");
                 }
 
                 if (!isEmptyFields){
