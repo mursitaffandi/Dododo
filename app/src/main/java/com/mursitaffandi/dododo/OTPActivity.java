@@ -1,7 +1,15 @@
 package com.mursitaffandi.dododo;
 
+import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.CountDownTimer;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,11 +18,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class OTPActivity extends AppCompatActivity implements View.OnClickListener{
 
     EditText edt_otp1;
     TextView tv_timer;
     Button btn_konfirmasi,btn_resend_code;
+    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,22 +35,28 @@ public class OTPActivity extends AppCompatActivity implements View.OnClickListen
 
         initView();
 
-        btn_resend_code.setVisibility(View.INVISIBLE);
         // TODO CountDown
-        CountDownTimer Count = new CountDownTimer(10000, 1000) {
-            public void onTick(long millisUntilFinished) {
-                tv_timer.setText("Seconds remaining: " + millisUntilFinished / 1000);
-            }
 
-            public void onFinish() {
-                tv_timer.setVisibility(View.INVISIBLE);
-                btn_resend_code.setVisibility(View.VISIBLE);
-            }
-        };
-        Count.start();
+        if (checkAndRequestPermissions()) {
+            // carry on the normal flow, as the case of  permissions  granted.
+        }
+        countDown();
 
     }
+public void countDown(){
+    btn_resend_code.setVisibility(View.INVISIBLE);
+    CountDownTimer Count = new CountDownTimer(10000, 1000) {
+        public void onTick(long millisUntilFinished) {
+            tv_timer.setText("Seconds remaining: " + millisUntilFinished / 1000);
+        }
 
+        public void onFinish() {
+            tv_timer.setVisibility(View.INVISIBLE);
+            btn_resend_code.setVisibility(View.VISIBLE);
+        }
+    };
+    Count.start();
+}
     private void initView() {
         edt_otp1 = (EditText) findViewById(R.id.edt_otp1);
         tv_timer = (TextView) findViewById(R.id.tv_timer);
@@ -68,5 +87,52 @@ public class OTPActivity extends AppCompatActivity implements View.OnClickListen
             case R.id.btn_resend_code:
                 break;
         }
+    }
+
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equalsIgnoreCase("otp")) {
+                final String message = intent.getStringExtra("message");
+
+                edt_otp1.setText(message);
+            }
+        }
+    };
+
+    private  boolean checkAndRequestPermissions() {
+        int permissionSendMessage = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.SEND_SMS);
+        int receiveSMS = ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS);
+        int readSMS = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS);
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        if (receiveSMS != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.RECEIVE_MMS);
+        }
+        if (readSMS != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.READ_SMS);
+        }
+        if (permissionSendMessage != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.SEND_SMS);
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this,
+                    listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),
+                    REQUEST_ID_MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onResume() {
+        LocalBroadcastManager.getInstance(this).registerReceiver(receiver, new IntentFilter("otp"));
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver);
     }
 }
