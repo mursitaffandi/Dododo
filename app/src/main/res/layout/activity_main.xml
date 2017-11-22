@@ -42,6 +42,27 @@
             android:id="@+id/btn_penjadwalan"
             android:layout_margin="10dp"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:text="Cek Antrian Anda"
+            android:id="@+id/btn_cek_antrian"
+            android:padding="10dp"
+            android:background="@color/bg_main"
+            android:layout_margin="10dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:padding="10dp"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
 
 
 </LinearLayout>
