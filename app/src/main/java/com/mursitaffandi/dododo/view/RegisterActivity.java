@@ -22,6 +22,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private EditText edt_tanggal, edt_no_hp, edt_nama, edt_email;
     private Button btn_daftar;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -3,8 +3,11 @@ package com.mursitaffandi.dododo.controller;
 import com.mursitaffandi.dododo.ApplicationBase;
 import com.mursitaffandi.dododo.model.MRegister;
 import com.mursitaffandi.dododo.network.SRegister;
+import com.mursitaffandi.dododo.util.Progress;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,20 +18,33 @@ import retrofit2.Response;
  */
 
 public class CRegister {
-    private Progres event = new Progres();
+    private Progress event = new Progress();
     private EventBus eventBus = ApplicationBase.getInstance().getEventBus();
+    Map<String, String> query;
+
+    public CRegister(String nama,
+                     String email,
+                     String no_hp,
+                     String tgl_lahir,
+                     String password) {
+        this.query.put("nama", nama);
+        this.query.put("email", email);
+        this.query.put("no_hp", no_hp);
+        this.query.put("tgl_lahir", tgl_lahir);
+        this.query.put("password", password);
+    }
 
     public void getBaking() {
         SRegister apiService =
                 SRegister.client.create(SRegister.class);
-        Call<MRegister> listBakingCall = apiService.getJsonMRegister();
+        Call<MRegister> listBakingCall = apiService.getJsonMRegister(query);
         listBakingCall.enqueue(new Callback<MRegister>() {
             @Override
             public void onResponse(Call<MRegister> call, Response<MRegister> response) {
                 event.setSuccess(true);
                 event.setMessage(response.message());
-                MRegister mregister = new MultiBaking(response.body());
-                event.setBakings(multiBaking);
+                MRegister mregister = response.body();
+                event.setmRegister(mregister);
                 eventBus.post(event);
             }
 
