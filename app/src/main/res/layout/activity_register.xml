@@ -5,10 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="@dimen/activity_vertical_margin"
-    android:layout_marginBottom="@dimen/activity_vertical_margin"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:padding="@dimen/activity_vertical_margin"
     tools:context="com.mursitaffandi.dododo.RegisterActivity">
 
     <TextView
@@ -53,7 +50,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tanggal"
+        android:id="@+id/edt_tanggal"
         android:hint="yy/MM/yyyy"/>
     <Button
         android:layout_width="wrap_content"

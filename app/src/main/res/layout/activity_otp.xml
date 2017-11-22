@@ -1,57 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#d3d3d3"
+    android:background="@color/bg_login"
     tools:context="com.mursitaffandi.dododo.OTPActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linear_otp"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:orientation="horizontal">
+
         <EditText
-            android:layout_width="40dp"
-            android:layout_height="40dp"
             android:id="@+id/edt_otp1"
-            android:hint="1"
-            android:textAlignment="center"
-            android:background="#fff"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"/>
-        <EditText
-            android:layout_width="40dp"
+            android:layout_width="200dp"
             android:layout_height="40dp"
-            android:id="@+id/edt_otp2"
-            android:hint="2"
             android:background="#fff"
-            android:textAlignment="center"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"/>
-        <EditText
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/edt_otp3"
-            android:hint="3"
-            android:background="#fff"
-            android:textAlignment="center"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"/>
-        <EditText
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/edt_otp4"
-            android:hint="4"
-            android:textAlignment="center"
-            android:background="#fff" />
+            android:hint="1234"
+            android:inputType="number"
+            android:maxLength="4"
+            android:singleLine="false"
+            android:textAlignment="center" />
     </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_below="@+id/linear_otp"
+        android:layout_centerHorizontal="true"
         android:text="Confirm"
+        android:id="@+id/btn_konfirmasi"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         />
-</LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_konfirmasi"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"
+        android:id="@+id/tv_timer"
+        android:text="timer" />
+    <Button
+        android:id="@+id/btn_resend_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kirim Ulang Kode Konfirmasi"
+        android:textAllCaps="false"
+        android:textSize="15dp"
+        android:layout_below="@+id/btn_konfirmasi"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

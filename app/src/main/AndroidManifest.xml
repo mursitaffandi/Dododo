@@ -16,17 +16,20 @@
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".LoginActivity"
+            android:label="Login"/>
+        <activity android:name=".RegisterActivity"
+            android:label="Register"/>
+        <activity android:name=".OTPActivity"
+            android:label="Konfirmasi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
-            android:label="Login"/>
-        <activity android:name=".RegisterActivity"
-            android:label="Register"/>
-        <activity android:name=".OTPActivity"></activity>
     </application>
 
 </manifest>
