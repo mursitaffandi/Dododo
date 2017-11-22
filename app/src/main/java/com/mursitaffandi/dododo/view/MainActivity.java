@@ -28,6 +28,7 @@ Session session = ApplicationBase.getInstance().getSession();
         initView();
     }
 
+
     private void initView() {
         btn_informasi = (Button) findViewById(R.id.btn_informasi);
         btn_penjadwalan = (Button) findViewById(R.id.btn_penjadwalan);
