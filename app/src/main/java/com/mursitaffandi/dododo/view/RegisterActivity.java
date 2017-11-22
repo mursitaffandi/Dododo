@@ -10,7 +10,11 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import com.mursitaffandi.dododo.ApplicationBase;
 import com.mursitaffandi.dododo.R;
+import com.mursitaffandi.dododo.controller.CRegister;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,6 +27,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText edt_tanggal, edt_no_hp, edt_nama, edt_email;
     private Button btn_daftar;
 
+    private CRegister controllerRegister;
+    EventBus eventBus = ApplicationBase.getInstance().getEventBus();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
                 if (!isEmptyFields){
                     // TODO send to DB
-
+                    controllerRegister = new CRegister(nama,email,no_hp,tanggal,password);
                     // jika berhasil, konfirmasi OTP sms
                     startActivity(new Intent(RegisterActivity.this, OTPActivity.class));
                 }
