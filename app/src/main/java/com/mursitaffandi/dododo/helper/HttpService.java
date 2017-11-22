@@ -9,6 +9,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.mursitaffandi.dododo.MainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,9 +63,9 @@ public class HttpService extends IntentService {
                         String name = profileObj.getString("name");
                         String email = profileObj.getString("email");
                         String mobile = profileObj.getString("mobile");
-
-                        PrefManager pref = new PrefManager(getApplicationContext());
-                        pref.createLogin(name, email, mobile);
+//
+//                        PrefManager pref = new PrefManager(getApplicationContext());
+//                        pref.createLogin(name, email, mobile);
 
                         Intent intent = new Intent(HttpService.this, MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -105,7 +106,7 @@ public class HttpService extends IntentService {
         };
 
         // Adding request to request queue
-        MyApplication.getInstance().addToRequestQueue(strReq);
+       // MyApplication.getInstance().addToRequestQueue(strReq);
     }
 
 }

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:///mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/hackathon/Dododo/Dododo.iml" filepath="/mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/hackathon/Dododo/Dododo.iml" />
-      <module fileurl="file:///mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/Dododo/Dododo.iml" filepath="/mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/Dododo/Dododo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Dododo.iml" filepath="$PROJECT_DIR$/Dododo.iml" />
+      <module fileurl="file:///mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/Dododo/NIK_Studio-Dododo.iml" filepath="/mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/Dododo/NIK_Studio-Dododo.iml" />
+      <module fileurl="file:///mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/Dododo/app/app.iml" filepath="/mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/Dododo/app/app.iml" />
       <module fileurl="file:///mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/hackathon/Dododo/app/app.iml" filepath="/mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/hackathon/Dododo/app/app.iml" />
       <module fileurl="file:///mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/Dododo/app/app.iml" filepath="/mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/Dododo/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />

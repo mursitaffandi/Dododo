@@ -7,13 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-<<<<<<< HEAD
-            <option value="/mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/hackathon/Dododo" />
-            <option value="/mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/hackathon/Dododo/app" />
-=======
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
->>>>>>> 4a034b083faa65b5f68fc5de5efb969e1c0ca8f3
+            <option value="/mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/Dododo" />
+            <option value="/mnt/43cc6ea8-e5ee-4556-85bf-e3a61455ee9d/NIK_Studio/Dododo/app" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
