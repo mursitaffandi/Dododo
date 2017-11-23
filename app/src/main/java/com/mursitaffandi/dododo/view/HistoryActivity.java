@@ -1,7 +1,9 @@
-package com.mursitaffandi.dododo;
+package com.mursitaffandi.dododo.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.mursitaffandi.dododo.R;
 
 public class HistoryActivity extends AppCompatActivity {
 

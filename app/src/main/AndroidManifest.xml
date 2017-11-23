@@ -47,7 +47,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".HistoryActivity"></activity>
+        <activity android:name=".view.HistoryActivity"
+            android:label="Nomor Antrian"></activity>
     </application>
 
 </manifest>
