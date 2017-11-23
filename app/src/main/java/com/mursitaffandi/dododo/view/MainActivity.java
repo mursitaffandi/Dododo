@@ -54,6 +54,9 @@ Session session = ApplicationBase.getInstance().getSession();
             case  R.id.btn_logout:
                 session.logoutUser();
                 break;
+            case R.id.btn_cek_antrian:
+                startActivity(new Intent(MainActivity.this, HistoryActivity.class));
+                break;
         }
 
 

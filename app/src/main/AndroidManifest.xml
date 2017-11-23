@@ -48,7 +48,8 @@
         </receiver>
 
         <activity android:name=".view.HistoryActivity"
-            android:label="Nomor Antrian"></activity>
+            android:label="Nomor Antrian"
+            android:parentActivityName=".view.MainActivity"></activity>
     </application>
 
 </manifest>
