@@ -32,4 +32,12 @@ Mea ad legere tincidunt, augue doctus alienum et has. Est cu consul feugiat, pos
         <item>Penyakit Dalam</item>
         <item>Penyakit Mata</item>
     </string-array>
+
+    <string-array name="list_dokter">
+        <item>dr. Emijati Soepojo-Senin(09.00-10.00)</item>
+        <item>dr. Amanullah Sp.BS-Selasa(15.30-17.00)</item>
+        <item>drg. Kuswartono-Kamis(13.00-14.00)</item>
+        <item>dr. Diana Novitasari-Jumat(16.00-18.00)</item>
+        <item>dr. Henry Waruouw-Selasa(07.00-09.00)</item>
+    </string-array>
 </resources>
