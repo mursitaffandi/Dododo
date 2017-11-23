@@ -19,16 +19,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nama Pasien"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/nama"
-        android:textSize="18sp"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Pilih Poli Spesialis"/>
     <Spinner
         android:layout_width="match_parent"

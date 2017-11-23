@@ -1,6 +1,7 @@
 package com.mursitaffandi.dododo.view;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -51,7 +52,7 @@ public class JadwalCheckUpActivity extends AppCompatActivity implements View.OnC
         edt_tgl_checkup = (EditText) findViewById(R.id.edt_tgl_checkup);
         btn_batal = (Button) findViewById(R.id.btn_batal);
         btn_daftar = (Button) findViewById(R.id.btn_daftar);
-        nama = (TextView) findViewById(R.id.nama);
+        //nama = (TextView) findViewById(R.id.nama);
         spn_dokter = (Spinner) findViewById(R.id.spn_dokter);
         spn_poli = (Spinner) findViewById(R.id.spn_poli);
 
@@ -67,10 +68,12 @@ public class JadwalCheckUpActivity extends AppCompatActivity implements View.OnC
             case R.id.btn_batal:
                 break;
             case R.id.btn_daftar:
-                String snama = nama.toString();
+          //      String snama = nama.toString();
                 String tgl_checkup = edt_tgl_checkup.getText().toString();
                 String poli = spn_poli.getSelectedItem().toString();
                 String dokter = spn_dokter.getSelectedItem().toString();
+
+                startActivity(new Intent(this,MainActivity.class));
                 break;
             case R.id.edt_tgl_checkup:
                 showDateDialog();
