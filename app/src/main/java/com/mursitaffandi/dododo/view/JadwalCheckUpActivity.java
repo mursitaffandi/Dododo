@@ -73,7 +73,11 @@ public class JadwalCheckUpActivity extends AppCompatActivity implements View.OnC
                 String poli = spn_poli.getSelectedItem().toString();
                 String dokter = spn_dokter.getSelectedItem().toString();
 
-                startActivity(new Intent(this,HistoryActivity.class));
+                Intent in = new Intent(this,HistoryActivity.class);
+                in.putExtra("parse_dokter",dokter);
+                in.putExtra("parse_tanggal",tgl_checkup);
+                startActivity(in);
+
                 break;
             case R.id.edt_tgl_checkup:
                 showDateDialog();
